@@ -2,6 +2,8 @@ open Httpaf
 open Httpaf_effects
 open Printf
 
+let () = Sys.(signal sigpipe Signal_ignore) |> ignore
+
 let close sock =
   try Unix.shutdown sock Unix.SHUTDOWN_ALL
   with _ -> () ;
