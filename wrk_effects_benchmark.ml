@@ -26,6 +26,8 @@ let request_handler reqd =
       | "/" ->
         let response_ok = Response.create ~headers `OK in
           Reqd.respond_with_bigstring reqd response_ok text
+      | "/exit" ->
+          exit 0
       | _   ->
         let response_nf = Response.create `Not_found in
           Reqd.respond_with_string reqd response_nf "Route not found"
